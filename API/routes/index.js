@@ -23,9 +23,23 @@ router.get('/login', (req, res) =>
   })
 );
 
-// register is protected
+// admin is protected
 router.get('/admin', (req, res) =>
   res.render('admin', {
+    // name: req.user.name
+  })
+);
+
+// documentation is protected
+router.get('/documentation', (req, res) =>
+  res.render('documentation', {
+    // name: req.user.name
+  })
+);
+
+// register is protected
+router.get('/register', (req, res) =>
+  res.render('register', {
     // name: req.user.name
   })
 );
