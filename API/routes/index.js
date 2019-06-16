@@ -8,14 +8,6 @@ router.get('/home', function (req, res, next) {
   });
 });
 
-
-// home is protected
-router.get('/pricing', (req, res) =>
-  res.render('pricing', {
-    // name: req.user.name
-  })
-);
-
 // login is protected
 router.get('/login', (req, res) =>
   res.render('login', {

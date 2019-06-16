@@ -44,3 +44,35 @@ header,
 .lgnBtn {
   color: white;
 }
+
+.indexText {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.indexText span {
+  font-size: 30px;
+  color: #ffe02e;
+  font-weight: 600;
+}
+
+.lgnBtn span {
+  font-size: 30px;
+}
+
+.gt {
+  font-size: 20px;
+  color: black;
+  font-weight: 500;
+}
+
+.gt span {
+  font-size: 20px;
+  color: #bf360c;
+  font-weight: 600;
+}
+
+.bt {
+  color: #bf360c;
+  font-weight: 500;
+}
