@@ -16,3 +16,27 @@ header,
 .bg {
   background-color: #bf360c;
 }
+
+.nav-link {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.loginHeader {
+  height: 0%;
+}
+
+.mainLogin {
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.btn {
+  background: #bf360c !important;
+  color: white !important;
+}
+
+.registerLink {
+  font-size: 20px;
+  color: #bf360c;
+}
