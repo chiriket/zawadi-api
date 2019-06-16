@@ -10,8 +10,8 @@ router.get('/', function (req, res, next) {
 
 
 // home is protected
-router.get('/home', (req, res) =>
-  res.render('home', {
+router.get('/pricing', (req, res) =>
+  res.render('pricing', {
     // name: req.user.name
   })
 );
@@ -24,8 +24,8 @@ router.get('/login', (req, res) =>
 );
 
 // register is protected
-router.get('/register', (req, res) =>
-  res.render('register', {
+router.get('/admin', (req, res) =>
+  res.render('admin', {
     // name: req.user.name
   })
 );
