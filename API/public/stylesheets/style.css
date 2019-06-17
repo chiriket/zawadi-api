@@ -56,6 +56,12 @@ header,
   font-weight: 600;
 }
 
+.contact {
+  font-size: 30px;
+  color: #ffe02e;
+  font-weight: 600;
+}
+
 .lgnBtn span {
   font-size: 30px;
 }
