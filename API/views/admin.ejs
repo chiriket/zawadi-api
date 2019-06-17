@@ -21,19 +21,15 @@
     <div class="container-fluid d-flex h-100">
 
       <table class="table">
-        <thead class="Theader white-text">
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
         <tbody>
+          <% for(var i=0; i < data.length; i++) { %>
           <tr>
-            <td class="restName">Java House</td>
-            <td> <button type="button" class="btn btn-lg"> <span>CREATE</span> </i></button> </td>
-            <td><button type="button" class="btn btn-lg"> <span>CREATE</span> </i></button></td>
+            <td><%=  i %></td>
+            <td class="restName"><%= data[i].name %></td>
+            <td> <button type="button" class="btn btn-lg"> <span>EDIT</span> </i></button> </td>
+            <td><button type="button" class="btn btn-lg"> <span>DELETE</span> </i></button></td>
           </tr>
+          <% } %>
         </tbody>
       </table>
 

@@ -15,10 +15,35 @@ router.get('/login', (req, res) =>
   })
 );
 
+let data = [{
+    id: 1,
+    name: "Java House"
+  },
+  {
+    id: 2,
+    name: "Galitos"
+  },
+  {
+    id: 3,
+    name: "Chicken Inn"
+  },
+  {
+    id: 3,
+    name: "Pizza Inn"
+  },
+  {
+    id: 3,
+    name: "Steers"
+  }, {
+    id: 3,
+    name: "Something Inn"
+  }
+];
+
 // admin is protected
 router.get('/admin', (req, res) =>
   res.render('admin', {
-    // name: req.user.name
+    data: data
   })
 );
 
