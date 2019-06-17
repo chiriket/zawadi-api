@@ -82,3 +82,15 @@ header,
   color: #bf360c;
   font-weight: 500;
 }
+
+.main {
+  margin-top: -500px;
+}
+
+.Theader {
+  background: #bf360c;
+}
+
+.restName {
+  font-size: 40px;
+}

@@ -5,19 +5,41 @@
   <% include ./partials/head %>
 </head>
 
-<body class="container">
+<body>
 
   <header>
     <% include ./partials/header %>
+
+    <h2 class="display-4 font-weight-bold pt-5 mt-5 ml-3">ADD NEW RESTAURANT HERE:
+      <a class="lgnBtn" href="/login"><button type="button" class="btn btn-lg"> <span>CREATE</span> </i></button></a>
+    </h2>
+
   </header>
 
-  <main>
+  <main class="main">
+
+    <div class="container-fluid d-flex h-100">
+
+      <table class="table">
+        <thead class="Theader white-text">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="restName">Java House</td>
+            <td> <button type="button" class="btn btn-lg"> <span>CREATE</span> </i></button> </td>
+            <td><button type="button" class="btn btn-lg"> <span>CREATE</span> </i></button></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
 
   </main>
-
-  <footer>
-    <% include ./partials/footer %>
-  </footer>
 
 </body>
 
