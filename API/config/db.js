@@ -46,6 +46,6 @@ process.on('SIGINT', function () {
 });
 
 // BRING IN YOUR SCHEMAS & MODELS 
-require('../models/Tasks');
+require('../models/RestName');
 require('../models/Category');
 require('../models/Item');
