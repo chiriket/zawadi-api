@@ -6,11 +6,21 @@ var ObjectId = mongoose.Types.ObjectId;
 
 const RestName = require("../models/RestName");
 
-//get all RestNames
-router.get('/allRestNames', (req, res) => {
-    RestName.find((err, docs) => {
+// admin functions
+
+router.get('/rest', (req, res) => {
+    res.render('restName', {
+
+    })
+})
+
+router.get('/names', (req, res) => {
+    RestName.find((err, restName) => {
+
         if (!err) {
-            res.status(200).send(docs)
+            res.status(200).render('restName', {
+                restName: restName
+            })
         } else {
             res.status(404).json({
                 msg: error.message
@@ -20,6 +30,25 @@ router.get('/allRestNames', (req, res) => {
     })
 })
 
+//add RestName
+router.post('/addRest', (req, res) => {
+    var restName = new RestName({
+        name: req.body.name
+    });
+    restName.save((err, docs) => {
+        if (!err) {
+            res.status(200).send(docs);
+
+        } else {
+            res.status(404).json({
+                msg: err.message
+            });
+            console.log("Error in Saving RestName: " + JSON.stringify(err, undefined, 2))
+        }
+    });
+});
+
+//get RestName by id
 //get RestName by id
 router.get('/:id', (req, res) => {
 
@@ -30,6 +59,23 @@ router.get('/:id', (req, res) => {
         if (!err) {
             res.status(200).send(docs)
         } else {
+            console.log("Error in Retrieving RestNames: " + JSON.stringify(err, undefined, 2))
+        }
+
+    });
+
+});
+
+//get element by  id and redirect edit
+router.get('/:id', (req, res) => {
+
+    if (!ObjectId.isValid(req.params.id))
+        res.status(404).send(`no record with given id : ${req.params.id}`);
+
+    RestName.findById(req.params.id, (err, docs) => {
+        if (!err) {
+            res.status(200).redirect("/edit");
+        } else {
             res.status(404).json({
                 msg: err.message
             });
@@ -40,54 +86,13 @@ router.get('/:id', (req, res) => {
 
 });
 
-//add RestName
-router.post('/addRestName', (req, res) => {
-    var RestName = new RestName({
-        name: req.body.name
-    });
-    RestName.save((err, docs) => {
-        if (!err) {
-            res.status(200).send(docs)
-        } else {
-            res.status(404).json({
-                msg: err.message
-            });
-            console.log("Error in Saving RestName: " + JSON.stringify(err, undefined, 2))
-        }
-    });
-});
-
-//update RestName
-router.put('/:id/edit', (req, res) => {
-    if (!ObjectId.isValid(req.params.id))
-        res.status(404).send(`no record with given id : ${req.params.id}`);
-
-    var RestNames = {
-        name: req.body.name
-    };
-    RestName.findByIdAndUpdate(req.params.id, {
-        $set: RestNames
-    }, {
-        new: true
-    }, (err, docs) => {
-        if (!err) {
-            res.status(200).send(docs)
-        } else {
-            res.status(404).json({
-                msg: err.message
-            });
-            console.log("Error in Saving RestNames: " + JSON.stringify(err, undefined, 2))
-        }
-    });
-})
-
-router.delete('/:id/delete', (req, res) => {
+router.post('/:id/delete', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         res.status(404).send(`no record with given id : ${req.params.id}`);
 
     RestName.findByIdAndDelete(req.params.id, (err, docs) => {
         if (!err) {
-            res.status(200).send(docs)
+            res.status(200).redirect("/admin");
         } else {
             res.status(404).json({
                 msg: err.message

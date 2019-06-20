@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 
 // Build the connection string 
-var dbURI = 'mongodb://localhost:27017/tasks';
+var dbURI = 'mongodb://localhost:27017/zawadi';
 
 //db config
 const db = require('../config/Keys').MongoURI;

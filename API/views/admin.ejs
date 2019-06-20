@@ -10,9 +10,89 @@
   <header>
     <% include ./partials/header %>
 
-    <h2 class="display-4 font-weight-bold pt-5 mt-5 ml-3">ADD NEW RESTAURANT HERE:
-      <a class="lgnBtn" href="/login"><button type="button" class="btn btn-lg"> <span>CREATE</span> </i></button></a>
-    </h2>
+    <div class="container btns">
+      <div class="row">
+        <div class="col-sm-4">
+          <a class="lgnBtn" href="/addRestaurant"><button type="button" class="btn btn-lg"> <span>Add Name</span>
+              </i></button></a>
+        </div>
+        <div class="col-sm-4">
+          <a class="lgnBtn" href="/cat/addCategory"><button type="button" class="btn btn-lg"> <span>Add category</span>
+              </i></button></a>
+        </div>
+        <div class="col-sm-4">
+          <!DOCTYPE html>
+          <html lang="en">
+
+          <head>
+            <% include ./partials/head %>
+          </head>
+
+          <body>
+
+            <header>
+              <% include ./partials/header %>
+
+              <div class="container btns">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <a class="lgnBtn" href="/addRestaurant"><button type="button" class="btn btn-lg"> <span>Add
+                          Name</span>
+                        </i></button></a>
+                  </div>
+                  <div class="col-sm-4">
+                    <a class="lgnBtn" href="/cat/addCategory"><button type="button" class="btn btn-lg"> <span>Add
+                          category</span>
+                        </i></button></a>
+                  </div>
+                  <div class="col-sm-4">
+                    <a class="lgnBtn" href="/item/addItem"><button type="button" class="btn btn-lg"> <span>Add
+                          item</span>
+                        </i></button></a>
+                  </div>
+                </div>
+              </div>
+
+            </header>
+
+            <main class="main">
+
+              <div class="container-fluid d-flex h-100">
+
+                <table class="table">
+                  <tbody>
+                    <% for(var i=0; i < restName.length; i++) { %>
+                    <tr>
+                      <td><%=  i %></td>
+                      <td class="restName"><%= restName[i].name %></td>
+                      <a href="/<%= restName[i].id %>">
+                        <td> <button type="button" class="btn btn-lg"> <span>EDIT</span> </i></button> </td>
+                      </a>
+
+                      <td>
+                        <form method="post" action="/<%= restName[i].id %>/delete" style="float:right">
+                          <input type="submit" class="btn btn-lg" name="delete" value='Delete'
+                            onClick="return confirm('Are you sure you want to delete?')" />
+                          <input type="hidden" name="_method" value="DELETE" />
+                        </form>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+
+              </div>
+
+            </main>
+
+          </body>
+
+          </html>
+          <a class="lgnBtn" href="/item/addItem"><button type="button" class="btn btn-lg"> <span>Add item</span>
+              </i></button></a>
+        </div>
+      </div>
+    </div>
 
   </header>
 
@@ -22,12 +102,21 @@
 
       <table class="table">
         <tbody>
-          <% for(var i=0; i < data.length; i++) { %>
+          <% for(var i=0; i < restName.length; i++) { %>
           <tr>
             <td><%=  i %></td>
-            <td class="restName"><%= data[i].name %></td>
-            <td> <button type="button" class="btn btn-lg"> <span>EDIT</span> </i></button> </td>
-            <td><button type="button" class="btn btn-lg"> <span>DELETE</span> </i></button></td>
+            <td class="restName"><%= restName[i].name %></td>
+            <a href="/<%= restName[i].id %>">
+              <td> <button type="button" class="btn btn-lg"> <span>EDIT</span> </i></button> </td>
+            </a>
+
+            <td>
+              <form method="post" action="/<%= restName[i].id %>/delete" style="float:right">
+                <input type="submit" class="btn btn-lg" name="delete" value='Delete'
+                  onClick="return confirm('Are you sure you want to delete?')" />
+                <input type="hidden" name="_method" value="DELETE" />
+              </form>
+            </td>
           </tr>
           <% } %>
         </tbody>
